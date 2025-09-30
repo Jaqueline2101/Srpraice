@@ -17,12 +17,12 @@
             font-family: 'Racing Sans One', cursive;
             background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #0f0f0f 100%);
             min-height: 100vh;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
             padding: 10px 0;
         }
@@ -50,7 +50,7 @@
         }
 
         .title h1 {
-            font-size: 2.5em;
+            font-size: clamp(1.5em, 5vw, 2.5em);
             font-family: 'Bebas Neue', cursive;
             background: linear-gradient(45deg, #ff0000, #ff4500, #ffa500, #ff0000);
             -webkit-background-clip: text;
@@ -62,7 +62,7 @@
         }
 
         .title .subtitle {
-            font-size: 1em;
+            font-size: clamp(0.8em, 3vw, 1em);
             color: #ffa500;
             text-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
             font-family: 'Racing Sans One', cursive;
@@ -91,7 +91,7 @@
         .road-container {
             width: 90%;
             max-width: 1200px;
-            height: 220px;
+            height: clamp(180px, 25vh, 220px);
             position: relative;
             background: linear-gradient(to bottom, 
                 #0a0a0a 0%, 
@@ -115,10 +115,10 @@
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.2em;
+            font-size: clamp(0.8em, 2.5vw, 1.2em);
             color: #ff4500;
             font-family: 'Bebas Neue', cursive;
-            letter-spacing: 8px;
+            letter-spacing: clamp(3px, 1.5vw, 8px);
             text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
             z-index: 5;
         }
@@ -167,7 +167,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 3.2em;
+            font-size: clamp(2em, 6vw, 3.2em);
             animation: superDrive 3s linear infinite;
             filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
         }
@@ -468,6 +468,179 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
+        /* MEDIA QUERIES PARA MÓVILES */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 5px;
+                justify-content: flex-start;
+                gap: 15px;
+            }
+
+            .title {
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+
+            .title h1 {
+                font-size: clamp(1.8em, 7vw, 2.5em);
+                letter-spacing: 3px;
+            }
+
+            .fire-line {
+                width: 90%;
+                margin: 8px auto;
+            }
+
+            .road-container {
+                height: clamp(200px, 30vh, 250px);
+                width: 95%;
+                margin: 10px 0;
+            }
+
+            .road-container::before {
+                font-size: clamp(0.9em, 3.5vw, 1.2em);
+                letter-spacing: clamp(4px, 2vw, 8px);
+                top: 8px;
+            }
+
+            .car {
+                font-size: clamp(2.5em, 8vw, 3.2em);
+            }
+
+            .flame {
+                font-size: clamp(1.5em, 4vw, 2em);
+            }
+
+            .btn-container {
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+
+            .celebrate-btn {
+                font-size: clamp(1.1em, 4vw, 1.35em);
+                padding: 14px 32px;
+                letter-spacing: 2px;
+            }
+
+            .modal {
+                padding: 10px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+                max-width: 95%;
+                max-height: 90vh;
+            }
+
+            .modal-content h2 {
+                font-size: clamp(1.8em, 6vw, 2.8em);
+                margin-bottom: 15px;
+            }
+
+            .modal-content p {
+                font-size: clamp(1em, 3.5vw, 1.2em);
+                line-height: 1.5;
+                margin: 12px 0;
+            }
+
+            .hearts {
+                font-size: clamp(1.5em, 5vw, 2em);
+                margin: 15px 0;
+            }
+
+            .love-badge {
+                font-size: clamp(0.85em, 3vw, 0.95em);
+                padding: 8px 15px;
+                margin: 10px 0;
+            }
+
+            .close-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 2em;
+            }
+
+            .music-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title h1 {
+                font-size: 1.6em;
+                letter-spacing: 2px;
+            }
+
+            .title .subtitle {
+                font-size: 0.85em;
+            }
+
+            .road-container {
+                height: 180px;
+            }
+
+            .road-container::before {
+                font-size: 0.85em;
+                letter-spacing: 3px;
+            }
+
+            .car {
+                font-size: 2.2em;
+            }
+
+            .celebrate-btn {
+                font-size: 1em;
+                padding: 12px 28px;
+            }
+
+            .modal-content {
+                padding: 25px 15px;
+            }
+
+            .modal-content h2 {
+                font-size: 1.6em;
+            }
+
+            .modal-content p {
+                font-size: 0.95em;
+            }
+
+            .music-control {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3em;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Optimización para pantallas muy pequeñas */
+        @media (max-height: 700px) and (max-width: 480px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            .title {
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+
+            .road-container {
+                height: 160px;
+            }
+
+            .btn-container {
+                margin-top: 8px;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -478,7 +651,7 @@
 
     <!-- Audio de Rápidos y Furiosos -->
     <audio id="backgroundMusic" loop>
-        <source src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" type="audio/mpeg">
+        <source src="https://www.youtube.com/watch?v=O5w8fKyGo2E" type="audio/mpeg">
     </audio>
 
     <div class="title">
@@ -560,8 +733,8 @@
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
 
-        // Usar una URL de música conocida de Fast & Furious desde YouTube (convertido a audio)
-        // Como no podemos usar YouTube directamente, usamos una pista similar de acción
+        // Nota: Los enlaces de YouTube no funcionan directamente en audio tags
+        // Se usa un servicio alternativo para música de acción similar a Fast & Furious
         music.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
         function toggleMusic() {
