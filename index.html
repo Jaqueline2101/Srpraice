@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día de Hot Wheels Mi Amor! 🏎️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Racing+Sans+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Racing Sans One', cursive;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #0f0f0f 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 69, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            z-index: 10;
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+
+        .title h1 {
+            font-size: 4em;
+            font-family: 'Bebas Neue', cursive;
+            background: linear-gradient(45deg, #ff0000, #ff4500, #ffa500, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .title .subtitle {
+            font-size: 1.5em;
+            color: #ffa500;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+            font-family: 'Racing Sans One', cursive;
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .fire-line {
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff4500, #ff0000, #ff4500, transparent);
+            margin: 20px auto;
+            box-shadow: 0 0 20px #ff0000;
+            animation: fireMove 2s linear infinite;
+        }
+
+        @keyframes fireMove {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .road-container {
+            width: 90%;
+            max-width: 1200px;
+            height: 350px;
+            position: relative;
+            background: linear-gradient(to bottom, 
+                #0a0a0a 0%, 
+                #1a1a1a 20%, 
+                #2a2a2a 50%, 
+                #1a1a1a 80%, 
+                #0a0a0a 100%);
+            border: 3px solid #ff4500;
+            box-shadow: 
+                0 0 30px rgba(255, 69, 0, 0.6),
+                inset 0 0 50px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .road-container::before {
+            content: 'FAST & FURIOUS';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            color: #ff4500;
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 8px;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+            z-index: 5;
+        }
+
+        .speed-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff4500, transparent);
+            animation: speedMove 1s linear infinite;
+        }
+
+        .speed-line:nth-child(1) { top: 25%; animation-delay: 0s; }
+        .speed-line:nth-child(2) { top: 50%; animation-delay: 0.3s; }
+        .speed-line:nth-child(3) { top: 75%; animation-delay: 0.6s; }
+
+        @keyframes speedMove {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        .road-line {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                to right,
+                #ffff00 0px,
+                #ffff00 60px,
+                transparent 60px,
+                transparent 120px
+            );
+            transform: translateY(-50%);
+            animation: roadMove 1.5s linear infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+        }
+
+        @keyframes roadMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 120px 0; }
+        }
+
+        .car {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5em;
+            animation: superDrive 3s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
+        }
+
+        .car:nth-child(5) {
+            animation-delay: 1s;
+            top: 25%;
+            animation: superDrive 3.5s linear infinite;
+        }
+
+        .car:nth-child(6) {
+            animation-delay: 2s;
+            top: 75%;
+            animation: superDrive 2.8s linear infinite;
+        }
+
+        @keyframes superDrive {
+            0% {
+                left: -15%;
+                filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(255, 0, 0, 1));
+            }
+            100% {
+                left: 115%;
+                filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
+            }
+        }
+
+        .flame {
+            position: absolute;
+            font-size: 2em;
+            animation: flameFlicker 0.3s infinite alternate;
+        }
+
+        @keyframes flameFlicker {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        .btn-container {
+            margin-top: 50px;
+            z-index: 10;
+        }
+
+        .celebrate-btn {
+            background: linear-gradient(135deg, #ff0000 0%, #ff4500 50%, #ff8c00 100%);
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            padding: 25px 60px;
+            border: 4px solid #ffa500;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 
+                0 10px 40px rgba(255, 69, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'Bebas Neue', cursive;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .celebrate-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .celebrate-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 
+                0 15px 50px rgba(255, 0, 0, 0.8),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .celebrate-btn:active {
+            transform: translateY(-3px) scale(1.03);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 700px;
+            border: 5px solid #ff4500;
+            box-shadow: 
+                0 0 60px rgba(255, 69, 0, 0.8),
+                inset 0 0 50px rgba(255, 0, 0, 0.2);
+            animation: modalZoom 0.6s ease;
+            position: relative;
+        }
+
+        @keyframes modalZoom {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #ff0000, #ff4500, #ffa500, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            margin-bottom: 30px;
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 3px;
+            animation: heartPulse 1.5s infinite;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .modal-content p {
+            font-size: 1.4em;
+            color: #ffa500;
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+            margin: 20px 0;
+            font-family: 'Racing Sans One', cursive;
+        }
+
+        .hearts {
+            font-size: 2.5em;
+            margin: 30px 0;
+            animation: floatHearts 2s ease-in-out infinite;
+        }
+
+        @keyframes floatHearts {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hearts span {
+            display: inline-block;
+            animation: heartbeat 1s infinite;
+            margin: 0 5px;
+        }
+
+        .hearts span:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5em;
+            color: #ff4500;
+            cursor: pointer;
+            background: rgba(255, 69, 0, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid #ff4500;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: rotate(180deg) scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+        }
+
+        .fire-effect {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #ff4500, #ff0000);
+            border-radius: 50%;
+            animation: fireParticle 2s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fireParticle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .love-badge {
+            display: inline-block;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff4500;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #ffa500;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.8); }
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff0000, #ff4500);
+            border: 3px solid #ffa500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.8em;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: musicPulse 2s infinite;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 1);
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.8); }
+            50% { box-shadow: 0 0 50px rgba(255, 0, 0, 1); }
+        }
+
+        .music-playing {
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Control de música -->
+    <div class="music-control" onclick="toggleMusic()" id="musicBtn">
+        🎵
+    </div>
+
+    <!-- Audio de Rápidos y Furiosos -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" type="audio/mpeg">
+    </audio>
+
+    <div class="title">
+        <h1>🏎️ HOT WHEELS DAY 🏎️</h1>
+        <div class="fire-line"></div>
+        <p class="subtitle">⚡ RÁPIDOS Y FURIOSOS ⚡</p>
+    </div>
+
+    <div class="road-container">
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="road-line"></div>
+        <div class="car">🏎️</div>
+        <div class="car">🚗</div>
+        <div class="car">🏁</div>
+        <div class="flame" style="left: 10%; top: 20%;">🔥</div>
+        <div class="flame" style="right: 15%; top: 30%;">🔥</div>
+        <div class="flame" style="left: 20%; bottom: 25%;">🔥</div>
+        <div class="flame" style="right: 25%; bottom: 20%;">🔥</div>
+    </div>
+
+    <div class="btn-container">
+        <button class="celebrate-btn" onclick="showModal()">
+            🔥 ¡ACELERA AQUÍ! 🔥
+        </button>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2>💖 ¡FELICIDADES MI AMOR! 💖</h2>
+            
+            <div class="hearts">
+                <span>❤️</span>
+                <span>💙</span>
+                <span>💚</span>
+                <span>💛</span>
+                <span>💜</span>
+                <span>🧡</span>
+            </div>
+            
+            <div class="love-badge">
+                ✨ Para la persona más especial ✨
+            </div>
+            
+            <p>
+                En este día tan especial quiero que sepas que eres<br>
+                la velocidad en mi corazón, la chispa que enciende mis días<br>
+                y la razón de cada sonrisa mía 🌟
+            </p>
+            
+            <p style="margin-top: 25px;">
+                Así como estos Hot Wheels corren sin parar,<br>
+                así corre mi amor por ti... ¡sin límites y a toda velocidad! 💨
+            </p>
+            
+            <p style="margin-top: 25px; font-size: 1.6em; color: #ff4500;">
+                ¡Eres mi copiloto favorito en esta aventura llamada vida! 🏁💕
+            </p>
+            
+            <div class="hearts">
+                <span>💖</span>
+                <span>💕</span>
+                <span>💗</span>
+                <span>💓</span>
+                <span>💝</span>
+                <span>💘</span>
+            </div>
+            
+            <div class="love-badge">
+                🔥 Te amo con toda mi alma 🔥
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let musicPlaying = false;
+        const music = document.getElementById('backgroundMusic');
+        const musicBtn = document.getElementById('musicBtn');
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                music.pause();
+                musicBtn.textContent = '🎵';
+                musicBtn.classList.remove('music-playing');
+            } else {
+                music.play();
+                musicBtn.textContent = '🔊';
+                musicBtn.classList.add('music-playing');
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Iniciar música automáticamente con interacción del usuario
+        document.body.addEventListener('click', function initMusic() {
+            if (!musicPlaying) {
+                music.play().then(() => {
+                    musicPlaying = true;
+                    musicBtn.textContent = '🔊';
+                    musicBtn.classList.add('music-playing');
+                }).catch(e => console.log('Esperando interacción para música'));
+            }
+            document.body.removeEventListener('click', initMusic);
+        }, { once: true });
+
+        function showModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'flex';
+            createFireworks();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        function createFireworks() {
+            const colors = ['#ff0000', '#ff4500', '#ffa500', '#ff6347', '#ff8c00'];
+            for (let i = 0; i < 80; i++) {
+                const fire = document.createElement('div');
+                fire.className = 'fire-effect';
+                fire.style.left = Math.random() * 100 + '%';
+                fire.style.top = Math.random() * 100 + '%';
+                fire.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, #ff0000)`;
+                fire.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(fire);
+                
+                setTimeout(() => fire.remove(), 2000);
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        setInterval(() => {
+            const flame = document.createElement('div');
+            flame.className = 'flame';
+            flame.textContent = '🔥';
+            flame.style.left = Math.random() * 90 + '%';
+            flame.style.top = Math.random() * 80 + 20 + '%';
+            flame.style.position = 'absolute';
+            document.querySelector('.road-container').appendChild(flame);
+            
+            setTimeout(() => flame.remove(), 2000);
+        }, 1000);
+    </script>
+</body>
+</html>
