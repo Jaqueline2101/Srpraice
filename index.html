@@ -733,9 +733,8 @@
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
 
-        // Nota: Los enlaces de YouTube no funcionan directamente en audio tags
-        // Se usa un servicio alternativo para música de acción similar a Fast & Furious
-        music.src = 'https://www.dropbox.com/scl/fi/iq92g7hi6hneglhbnd21z/Mi-vida-eres-tu-Miguel-Angel-El-Genio-para-dedicar-O5w8fKyGo2E.mp3?rlkey=y3c3jjj8vkrl0cbis3qs9wlmn&st=esp7z07q&dl=0';
+        // Enlace de Dropbox corregido (cambiado dl=0 a dl=1 para descarga directa)
+        music.src = 'https://www.dropbox.com/scl/fi/iq92g7hi6hneglhbnd21z/Mi-vida-eres-tu-Miguel-Angel-El-Genio-para-dedicar-O5w8fKyGo2E.mp3?rlkey=y3c3jjj8vkrl0cbis3qs9wlmn&st=esp7z07q&dl=1';
 
         function toggleMusic() {
             if (musicPlaying) {
