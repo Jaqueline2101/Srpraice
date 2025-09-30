@@ -17,12 +17,15 @@
             font-family: 'Racing Sans One', cursive;
             background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #0f0f0f 100%);
             min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
             overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
+            padding: 20px 0;
         }
 
         body::before {
@@ -41,9 +44,10 @@
         .title {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             z-index: 10;
             animation: neonPulse 2s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
         .title h1 {
@@ -103,6 +107,7 @@
             overflow: hidden;
             border-radius: 20px;
             position: relative;
+            flex-shrink: 0;
         }
 
         .road-container::before {
@@ -206,8 +211,9 @@
         }
 
         .btn-container {
-            margin-top: 50px;
+            margin-top: 30px;
             z-index: 10;
+            flex-shrink: 0;
         }
 
         .celebrate-btn {
@@ -270,6 +276,8 @@
             justify-content: center;
             align-items: center;
             animation: fadeIn 0.5s ease;
+            overflow-y: auto;
+            padding: 20px;
         }
 
         @keyframes fadeIn {
@@ -279,16 +287,20 @@
 
         .modal-content {
             background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
-            padding: 60px;
+            padding: 40px 30px;
             border-radius: 30px;
             text-align: center;
             max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
             border: 5px solid #ff4500;
             box-shadow: 
                 0 0 60px rgba(255, 69, 0, 0.8),
                 inset 0 0 50px rgba(255, 0, 0, 0.2);
             animation: modalZoom 0.6s ease;
             position: relative;
+            margin: auto;
         }
 
         @keyframes modalZoom {
@@ -303,13 +315,13 @@
         }
 
         .modal-content h2 {
-            font-size: 3.5em;
+            font-size: 2.8em;
             background: linear-gradient(45deg, #ff0000, #ff4500, #ffa500, #ff0000);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 3px;
             animation: heartPulse 1.5s infinite;
@@ -321,17 +333,17 @@
         }
 
         .modal-content p {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #ffa500;
-            line-height: 1.8;
+            line-height: 1.6;
             text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-            margin: 20px 0;
+            margin: 15px 0;
             font-family: 'Racing Sans One', cursive;
         }
 
         .hearts {
-            font-size: 2.5em;
-            margin: 30px 0;
+            font-size: 2em;
+            margin: 20px 0;
             animation: floatHearts 2s ease-in-out infinite;
         }
 
@@ -434,7 +446,7 @@
             cursor: pointer;
             font-size: 1.8em;
             box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
-            z-index: 999;
+            z-index: 9999;
             transition: all 0.3s ease;
             animation: musicPulse 2s infinite;
         }
@@ -549,30 +561,25 @@
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
 
+        // Usar una URL de música conocida de Fast & Furious desde YouTube (convertido a audio)
+        // Como no podemos usar YouTube directamente, usamos una pista similar de acción
+        music.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+
         function toggleMusic() {
             if (musicPlaying) {
                 music.pause();
                 musicBtn.textContent = '🎵';
                 musicBtn.classList.remove('music-playing');
             } else {
-                music.play();
+                music.play().catch(e => {
+                    console.log('Error reproduciendo música:', e);
+                    alert('Haz clic en el botón de música para activar el sonido 🎵');
+                });
                 musicBtn.textContent = '🔊';
                 musicBtn.classList.add('music-playing');
             }
             musicPlaying = !musicPlaying;
         }
-
-        // Iniciar música automáticamente con interacción del usuario
-        document.body.addEventListener('click', function initMusic() {
-            if (!musicPlaying) {
-                music.play().then(() => {
-                    musicPlaying = true;
-                    musicBtn.textContent = '🔊';
-                    musicBtn.classList.add('music-playing');
-                }).catch(e => console.log('Esperando interacción para música'));
-            }
-            document.body.removeEventListener('click', initMusic);
-        }, { once: true });
 
         function showModal() {
             const modal = document.getElementById('modal');
